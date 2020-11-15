@@ -144,14 +144,16 @@ var specialCharConfirm = function () {
 // numbers
 
 var numericConfirm = function () {
+ 
   var numericClear = window.confirm(
     "Would you like to include numbers in your password?"
   );
-
   if (numericClear === true) {
     passwordInfo.numeric = true;
+    completePassword();
   } else {
     passwordInfo.numeric = false;
+    completePassword();
   }
   console.log(passwordInfo);
 };
@@ -193,10 +195,30 @@ var passwordInfo = {
   special: 0,
   numeric: 0,
 };
-
+var finalPassword = []
 // finalize password
 
+var completePassword = function () {
+    // add lowerCaseArray
+    if (passwordInfo.lower === true) {
+    finalPassword.push(lowerCaseArray);
+    // add upperCaseArray
+    if (passwordInfo.upper === true) {
+    finalPassword.push(upperCaseArray);
+    // add special characters
+    if (passwordInfo.special === true) {
+    finalPassword.push(specialCharArray);
+    // add numbers
+    if (passwordInfo.numeric === true) {
+    finalPassword.push(numericArray);
+    }}}
+} else {
 
+window.alert("There are no possible passwords given your selections, please select length of password and at least one password criteria.");
+return generatePassword();
+
+}
+};
 console.log(passwordInfo);
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
