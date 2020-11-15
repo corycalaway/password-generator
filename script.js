@@ -203,30 +203,28 @@ var completePassword = function () {
     finalPassword.push(
       lowerCaseArray[Math.floor(lowerCaseArray.length * Math.random())]
     );
+    }
+
     // add upperCaseArray
-    } else if (passwordInfo.passUpper === true) {
+    if (passwordInfo.passUpper === true) {
       finalPassword.push(
         upperCaseArray[Math.floor(upperCaseArray.length * Math.random())]
       );
+    }
+
       // add special characters
-      } else if (passwordInfo.passSpecial === true) {
+      if (passwordInfo.passSpecial === true) {
         finalPassword.push(
           specialCharArray[Math.floor(specialCharArray.length * Math.random())]
         );
+    }
         // add numbers
-        } else if (passwordInfo.passNumeric === true) {
+        if (passwordInfo.passNumeric === true) {
           finalPassword.push(
             numericArray[Math.floor(numericArray.length * Math.random())]
           );
-        
-    fullLengthPass();
-    
-  } else {
-    window.alert(
-      "There are no possible passwords given your selections, please select length of password and at least one password criteria."
-    );
-    return generatePassword();
-  }
+        }
+         fullLengthPass();
 };
 // when final password is less than passwordinfo length run through each array and sometimes add a char
 var fullLengthPass = function () {
@@ -235,31 +233,28 @@ var fullLengthPass = function () {
       finalPassword.push(
         lowerCaseArray[Math.floor(lowerCaseArray.length * Math.random())]
       );
+    }
       // add upperCaseArray
-      } else if (passwordInfo.passUpper === true) {
+      if (passwordInfo.passUpper === true) {
         finalPassword.push(
           upperCaseArray[Math.floor(upperCaseArray.length * Math.random())]
         );
+      }
         // add special characters
-        } else if (passwordInfo.passSpecial === true) {
+        if (passwordInfo.passSpecial === true) {
           finalPassword.push(
             specialCharArray[
-              Math.floor(specialCharArray.length * Math.random())
-            ]
-          );
+              Math.floor(specialCharArray.length * Math.random())]
+              );
+            }
           // add numbers
-        } else if (passwordInfo.passNumeric === true) {
+          if (passwordInfo.passNumeric === true) {
             finalPassword.push(
               numericArray[Math.floor(numericArray.length * Math.random())]
             );
-    } else {
-      window.alert(
-        "There are no possible passwords given your selections, please select length of password and at least one password criteria."
-      ); 
-      return generatePassword();
-    }
-  }
-}; 
+          }
+        }
+};
 console.log(passwordInfo);
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
