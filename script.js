@@ -43,11 +43,27 @@ var upperCaseConfirm = function() {
     console.log(upperCaseConfirm)
     if (upperCaseClear === true) {
         passwordInfo.upper = true;
+        specialCharConfirm();
     } else {
         passwordInfo.upper = false;
+        specialCharConfirm();
     }
     console.log(passwordInfo)
 };
+
+    // special character
+var specialCharConfirm = function() {
+
+    var specialCharClear = window.confirm("Would you like to include special characters in your password?");
+ 
+     console.log(upperCaseConfirm)
+     if (specialCharClear === true) {
+         passwordInfo.special = true;
+     } else {
+         passwordInfo.special = false;
+     }
+     console.log(passwordInfo)
+ };
 // option of characters confirm
 
 // Prompt asking to add lowerCaseArray
@@ -84,7 +100,7 @@ var passwordInfo = {
 length: 0,
 lower: 0,
 upper: 0, 
-//specialCharArr:
+special: 0,
 //numericArr:
 };
 console.log(passwordInfo)
