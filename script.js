@@ -165,44 +165,47 @@ var passwordInfo = {
   passSpecial: 0,
   passNumeric: 0,
 };
+
+// finalize password
 var finalPassword = [];
 // finalize password
 
+// pushes at least one of each selected character to array
 var completePassword = function () {
   // add lowerCaseArray
   if (passwordInfo.passLower === true) {
     finalPassword.push(
       lowerCaseArray[Math.floor(lowerCaseArray.length * Math.random())]
     );
-    }
+  }
 
-    // add upperCaseArray
-    if (passwordInfo.passUpper === true) {
-      finalPassword.push(
-        upperCaseArray[Math.floor(upperCaseArray.length * Math.random())]
-      );
-    }
+  // add upperCaseArray
+  if (passwordInfo.passUpper === true) {
+    finalPassword.push(
+      upperCaseArray[Math.floor(upperCaseArray.length * Math.random())]
+    );
+  }
 
-      // add special characters
-      if (passwordInfo.passSpecial === true) {
-        finalPassword.push(
-          specialCharArray[Math.floor(specialCharArray.length * Math.random())]
-        );
-    }
-        // add numbers
-        if (passwordInfo.passNumeric === true) {
-          finalPassword.push(
-            numericArray[Math.floor(numericArray.length * Math.random())]
-          );
-        }
-         fullLengthPass();
+  // add special characters
+  if (passwordInfo.passSpecial === true) {
+    finalPassword.push(
+      specialCharArray[Math.floor(specialCharArray.length * Math.random())]
+    );
+  }
+  // add numbers
+  if (passwordInfo.passNumeric === true) {
+    finalPassword.push(
+      numericArray[Math.floor(numericArray.length * Math.random())]
+    );
+  }
+  fullLengthPass();
 };
 // when final password is less than passwordinfo length run through each array and sometimes add a char
 var fullLengthPass = function () {
-    var randomChance = true;
-    if (Math.random() > 0.5) {
-        randomChance = false;
-    }
+  var randomChance = true;
+  if (Math.random() > 0.5) {
+    randomChance = false;
+  }
 
   while (finalPassword.length <= passwordInfo.passLength) {
     if (passwordInfo.passLower === true && randomChance === true) {
@@ -211,40 +214,39 @@ var fullLengthPass = function () {
       );
     }
     console.log(randomChance);
-      // add upperCaseArray
-      randomChance = true;
+    // add upperCaseArray
+    randomChance = true;
     if (Math.random() > 0.5) {
-        randomeChance = false;
+      randomeChance = false;
     }
-      if (passwordInfo.passUpper === true && randomChance === true) {
-        finalPassword.push(
-          upperCaseArray[Math.floor(upperCaseArray.length * Math.random())]
-        );
-      }
-      randomChance = true;
-    if (Math.random() > 0.5) {
-        randomChance = false;
+    if (passwordInfo.passUpper === true && randomChance === true) {
+      finalPassword.push(
+        upperCaseArray[Math.floor(upperCaseArray.length * Math.random())]
+      );
     }
-    console.log(randomChance);
-        // add special characters
-        if (passwordInfo.passSpecial === true && randomChance === true) {
-          finalPassword.push(
-            specialCharArray[
-              Math.floor(specialCharArray.length * Math.random())]
-              );
-            }
-            randomChance = true;
+    randomChance = true;
     if (Math.random() > 0.5) {
-        randomChance = false;
+      randomChance = false;
     }
     console.log(randomChance);
-          // add numbers
-          if (passwordInfo.passNumeric === true && randomChance === true) {
-            finalPassword.push(
-              numericArray[Math.floor(numericArray.length * Math.random())]
-            );
-          }
-        }
+    // add special characters
+    if (passwordInfo.passSpecial === true && randomChance === true) {
+      finalPassword.push(
+        specialCharArray[Math.floor(specialCharArray.length * Math.random())]
+      );
+    }
+    randomChance = true;
+    if (Math.random() > 0.5) {
+      randomChance = false;
+    }
+    console.log(randomChance);
+    // add numbers
+    if (passwordInfo.passNumeric === true && randomChance === true) {
+      finalPassword.push(
+        numericArray[Math.floor(numericArray.length * Math.random())]
+      );
+    }
+  }
 };
 console.log(passwordInfo);
 // Get references to the #generate element
@@ -255,6 +257,7 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
+  // joins array to display final password
   passwordText.value = finalPassword.join("");
 }
 

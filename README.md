@@ -1,7 +1,7 @@
 # Password Generator
 
 ## Function of page
-* When "Generate Passwor" button is pushed a series of prompts are displayed.
+* When "Generate Password" button is pushed a series of prompts are displayed.
 1. Prompt asking how long password should be.
 2. Ask to include lowercase characters.
 3. Ask to include uppercase characters.
