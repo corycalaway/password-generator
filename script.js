@@ -15,21 +15,39 @@ var generatePassword = function () {
         window.alert('Please select a valid number.')
         return generatePassword();
     } else {
-    promptLength;
+    passwordInfo.length = promptLength;
     }
     console.log(promptLength)
 
+    // lowercase confirm
     var lowerCaseConfirm = window.confirm("Would you like to include lowercase characters in your password?");
 
     console.log(lowerCaseConfirm)
     if (lowerCaseConfirm === true) {
-        passwordInfo.lower += 1;
+        passwordInfo.lower = true;
+        upperCaseConfirm();
     } else {
-        passwordInfo.lower += 0;
+        passwordInfo.lower = false;
+        upperCaseConfirm();
     }
+    console.log(passwordInfo)
+
     
 };
 
+    // uppercase confirm
+var upperCaseConfirm = function() {
+
+   var upperCaseClear = window.confirm("Would you like to include uppercase characters in your password?");
+
+    console.log(upperCaseConfirm)
+    if (upperCaseClear === true) {
+        passwordInfo.upper = true;
+    } else {
+        passwordInfo.upper = false;
+    }
+    console.log(passwordInfo)
+};
 // option of characters confirm
 
 // Prompt asking to add lowerCaseArray
@@ -63,12 +81,13 @@ diplayed password on page or in alert
 
 // password object
 var passwordInfo = {
-//length: 0,
-//upperCaseArr: 
+length: 0,
 lower: 0,
+upper: 0, 
 //specialCharArr:
 //numericArr:
 };
+console.log(passwordInfo)
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
