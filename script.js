@@ -201,7 +201,7 @@ var finalPassword = []
 var completePassword = function () {
     // add lowerCaseArray
     if (passwordInfo.lower === true) {
-    finalPassword.push(lowerCaseArray);
+    finalPassword.push(lowerCaseArray[Math.floor(lowerCaseArray.length * Math.random())]);
     // add upperCaseArray
     if (passwordInfo.upper === true) {
     finalPassword.push(upperCaseArray);
