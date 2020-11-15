@@ -115,7 +115,6 @@ var upperCaseConfirm = function () {
     "Would you like to include uppercase characters in your password?"
   );
 
-  
   if (upperCaseClear === true) {
     passwordInfo.upper = true;
     specialCharConfirm();
@@ -132,7 +131,6 @@ var specialCharConfirm = function () {
     "Would you like to include special characters in your password?"
   );
 
-
   if (specialCharClear === true) {
     passwordInfo.special = true;
     numericConfirm();
@@ -146,18 +144,18 @@ var specialCharConfirm = function () {
 // numbers
 
 var numericConfirm = function () {
-    var numericClear = window.confirm(
-      "Would you like to include numbers in your password?"
-    );
-  
-    if (numericClear === true) {
-      passwordInfo.numeric = true;
-    } else {
-      passwordInfo.numeric = false;
-    }
-    console.log(passwordInfo);
-  };
-  
+  var numericClear = window.confirm(
+    "Would you like to include numbers in your password?"
+  );
+
+  if (numericClear === true) {
+    passwordInfo.numeric = true;
+  } else {
+    passwordInfo.numeric = false;
+  }
+  console.log(passwordInfo);
+};
+
 // option of characters confirm
 
 // Prompt asking to add lowerCaseArray
@@ -195,6 +193,10 @@ var passwordInfo = {
   special: 0,
   numeric: 0,
 };
+
+// finalize password
+
+
 console.log(passwordInfo);
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
