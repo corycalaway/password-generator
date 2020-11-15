@@ -89,7 +89,7 @@ var generatePassword = function () {
     window.alert("Please select a valid number.");
     return generatePassword();
   } else {
-    passwordInfo.length = promptLength;
+    passwordInfo.passLength = promptLength;
   }
   console.log(promptLength);
 
@@ -100,10 +100,10 @@ var generatePassword = function () {
 
   console.log(lowerCaseConfirm);
   if (lowerCaseConfirm === true) {
-    passwordInfo.lower = true;
+    passwordInfo.passLower = true;
     upperCaseConfirm();
   } else {
-    passwordInfo.lower = false;
+    passwordInfo.passLower = false;
     upperCaseConfirm();
   }
   console.log(passwordInfo);
@@ -116,10 +116,10 @@ var upperCaseConfirm = function () {
   );
 
   if (upperCaseClear === true) {
-    passwordInfo.upper = true;
+    passwordInfo.passUpper = true;
     specialCharConfirm();
   } else {
-    passwordInfo.upper = false;
+    passwordInfo.passUpper = false;
     specialCharConfirm();
   }
   console.log(passwordInfo);
@@ -132,10 +132,10 @@ var specialCharConfirm = function () {
   );
 
   if (specialCharClear === true) {
-    passwordInfo.special = true;
+    passwordInfo.passSpecial = true;
     numericConfirm();
   } else {
-    passwordInfo.special = false;
+    passwordInfo.passSpecial = false;
     numericConfirm();
   }
   console.log(passwordInfo);
@@ -144,15 +144,14 @@ var specialCharConfirm = function () {
 // numbers
 
 var numericConfirm = function () {
- 
   var numericClear = window.confirm(
     "Would you like to include numbers in your password?"
   );
   if (numericClear === true) {
-    passwordInfo.numeric = true;
+    passwordInfo.passNumeric = true;
     completePassword();
   } else {
-    passwordInfo.numeric = false;
+    passwordInfo.passNumeric = false;
     completePassword();
   }
   console.log(passwordInfo);
@@ -165,7 +164,7 @@ var numericConfirm = function () {
 // option of characters confirm
 
 //var charOptions = function () {
-//  passwordInfo.lowerCaseSelect();
+
 //};
 // Prompt asking to add upperCaseArray
 
@@ -189,36 +188,78 @@ diplayed password on page or in alert
 
 // password object
 var passwordInfo = {
-  length: 0,
-  lower: 0,
-  upper: 0,
-  special: 0,
-  numeric: 0,
+  passLength: 0,
+  passLower: 0,
+  passUpper: 0,
+  passSpecial: 0,
+  passNumeric: 0,
 };
-var finalPassword = []
+var finalPassword = [];
 // finalize password
 
 var completePassword = function () {
-    // add lowerCaseArray
-    if (passwordInfo.lower === true) {
-    finalPassword.push(lowerCaseArray[Math.floor(lowerCaseArray.length * Math.random())]);
+  // add lowerCaseArray
+  if (passwordInfo.passLower === true) {
+    finalPassword.push(
+      lowerCaseArray[Math.floor(lowerCaseArray.length * Math.random())]
+    );
     // add upperCaseArray
-    if (passwordInfo.upper === true) {
-    finalPassword.push(upperCaseArray[Math.floor(upperCaseArray.length * Math.random())]);
-    // add special characters
-    if (passwordInfo.special === true) {
-    finalPassword.push(specialCharArray[Math.floor(specialCharArray.length * Math.random())]);
-    // add numbers
-    if (passwordInfo.numeric === true) {
-    finalPassword.push(numericArray[Math.floor(numericArray.length * Math.random())]);
-    }}}
-} else {
-
-window.alert("There are no possible passwords given your selections, please select length of password and at least one password criteria.");
-return generatePassword();
-
-}
+    } else if (passwordInfo.passUpper === true) {
+      finalPassword.push(
+        upperCaseArray[Math.floor(upperCaseArray.length * Math.random())]
+      );
+      // add special characters
+      } else if (passwordInfo.passSpecial === true) {
+        finalPassword.push(
+          specialCharArray[Math.floor(specialCharArray.length * Math.random())]
+        );
+        // add numbers
+        } else if (passwordInfo.passNumeric === true) {
+          finalPassword.push(
+            numericArray[Math.floor(numericArray.length * Math.random())]
+          );
+        
+    fullLengthPass();
+    
+  } else {
+    window.alert(
+      "There are no possible passwords given your selections, please select length of password and at least one password criteria."
+    );
+    return generatePassword();
+  }
 };
+// when final password is less than passwordinfo length run through each array and sometimes add a char
+var fullLengthPass = function () {
+  while (finalPassword.length <= passwordInfo.passLength) {
+    if (passwordInfo.passLower === true) {
+      finalPassword.push(
+        lowerCaseArray[Math.floor(lowerCaseArray.length * Math.random())]
+      );
+      // add upperCaseArray
+      } else if (passwordInfo.passUpper === true) {
+        finalPassword.push(
+          upperCaseArray[Math.floor(upperCaseArray.length * Math.random())]
+        );
+        // add special characters
+        } else if (passwordInfo.passSpecial === true) {
+          finalPassword.push(
+            specialCharArray[
+              Math.floor(specialCharArray.length * Math.random())
+            ]
+          );
+          // add numbers
+        } else if (passwordInfo.passNumeric === true) {
+            finalPassword.push(
+              numericArray[Math.floor(numericArray.length * Math.random())]
+            );
+    } else {
+      window.alert(
+        "There are no possible passwords given your selections, please select length of password and at least one password criteria."
+      ); 
+      return generatePassword();
+    }
+  }
+}; 
 console.log(passwordInfo);
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
