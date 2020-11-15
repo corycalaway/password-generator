@@ -157,35 +157,6 @@ var numericConfirm = function () {
   console.log(passwordInfo);
 };
 
-// option of characters confirm
-
-// Prompt asking to add lowerCaseArray
-
-// option of characters confirm
-
-//var charOptions = function () {
-
-//};
-// Prompt asking to add upperCaseArray
-
-// Prompt asking to add specialCharArray
-//var lowerchar = confirm
-//if(lowerchar)
-//Result.push(lowercasearr)
-// Prompt asking to add numericArray
-
-// password function
-
-/*
-length 8-128
-special characters : lowercase
-uppercase
-numeric
-and/or special characters
-generate password matching criteria at least one of each
-diplayed password on page or in alert
-*/
-
 // password object
 var passwordInfo = {
   passLength: 0,
@@ -284,7 +255,7 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  passwordText.value = finalPassword.join("");
 }
 
 // Add event listener to generate button
