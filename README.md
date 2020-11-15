@@ -11,7 +11,6 @@
 
 ### Current Page Issues
 
-* Page must be refreshed to generate new password.
 * Password does not generate if anything other than a number is entered when asking for password length.
 
 ### Link

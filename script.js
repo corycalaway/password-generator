@@ -79,7 +79,15 @@ var specialCharArray = [
 ];
 var numericArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 // length function
+
+// finalize password
+var finalPassword = [];
+// finalize password
+
 var generatePassword = function () {
+    // reset final password
+    finalPassword = [];
+    
   var promptLength = window.prompt(
     "How long would you like your password to be? Please enter a number from 8 to 128."
   );
@@ -166,9 +174,7 @@ var passwordInfo = {
   passNumeric: 0,
 };
 
-// finalize password
-var finalPassword = [];
-// finalize password
+
 
 // pushes at least one of each selected character to array
 var completePassword = function () {
