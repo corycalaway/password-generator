@@ -228,27 +228,47 @@ var completePassword = function () {
 };
 // when final password is less than passwordinfo length run through each array and sometimes add a char
 var fullLengthPass = function () {
+    var randomChance = true;
+    if (Math.random() > 0.5) {
+        randomChance = false;
+    }
+
   while (finalPassword.length <= passwordInfo.passLength) {
-    if (passwordInfo.passLower === true) {
+    if (passwordInfo.passLower === true && randomChance === true) {
       finalPassword.push(
         lowerCaseArray[Math.floor(lowerCaseArray.length * Math.random())]
       );
     }
+    console.log(randomChance);
       // add upperCaseArray
-      if (passwordInfo.passUpper === true) {
+      randomChance = true;
+    if (Math.random() > 0.5) {
+        randomeChance = false;
+    }
+      if (passwordInfo.passUpper === true && randomChance === true) {
         finalPassword.push(
           upperCaseArray[Math.floor(upperCaseArray.length * Math.random())]
         );
       }
+      randomChance = true;
+    if (Math.random() > 0.5) {
+        randomChance = false;
+    }
+    console.log(randomChance);
         // add special characters
-        if (passwordInfo.passSpecial === true) {
+        if (passwordInfo.passSpecial === true && randomChance === true) {
           finalPassword.push(
             specialCharArray[
               Math.floor(specialCharArray.length * Math.random())]
               );
             }
+            randomChance = true;
+    if (Math.random() > 0.5) {
+        randomChance = false;
+    }
+    console.log(randomChance);
           // add numbers
-          if (passwordInfo.passNumeric === true) {
+          if (passwordInfo.passNumeric === true && randomChance === true) {
             finalPassword.push(
               numericArray[Math.floor(numericArray.length * Math.random())]
             );
