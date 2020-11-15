@@ -204,13 +204,13 @@ var completePassword = function () {
     finalPassword.push(lowerCaseArray[Math.floor(lowerCaseArray.length * Math.random())]);
     // add upperCaseArray
     if (passwordInfo.upper === true) {
-    finalPassword.push(upperCaseArray);
+    finalPassword.push(upperCaseArray[Math.floor(upperCaseArray.length * Math.random())]);
     // add special characters
     if (passwordInfo.special === true) {
-    finalPassword.push(specialCharArray);
+    finalPassword.push(specialCharArray[Math.floor(specialCharArray.length * Math.random())]);
     // add numbers
     if (passwordInfo.numeric === true) {
-    finalPassword.push(numericArray);
+    finalPassword.push(numericArray[Math.floor(numericArray.length * Math.random())]);
     }}}
 } else {
 
