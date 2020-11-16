@@ -83,12 +83,16 @@ var numericArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 // finalize password
 var finalPassword = [];
 // finalize password
+// complete array
+var fullArray = [];
 
 
 var generatePassword = function () {
     // reset final password
     finalPassword = [];
-    
+    // reset array
+    fullArray = [];
+
   var promptLength = window.prompt(
     "How long would you like your password to be? Please enter a number from 8 to 128."
   );
@@ -173,42 +177,63 @@ var passwordInfo = {
   passSpecial: 0,
   passNumeric: 0,
 };
-
-
-
 // pushes at least one of each selected character to array
 var completePassword = function () {
   // add lowerCaseArray
   if (passwordInfo.passLower === true) {
     finalPassword.push(
-      lowerCaseArray[Math.floor(lowerCaseArray.length * Math.random())]
-    );
+      lowerCaseArray[Math.floor(lowerCaseArray.length * Math.random())]);
+      Array.prototype.push.apply(fullArray, lowerCaseArray);
   }
 
   // add upperCaseArray
   if (passwordInfo.passUpper === true) {
     finalPassword.push(
-      upperCaseArray[Math.floor(upperCaseArray.length * Math.random())]
-    );
+      upperCaseArray[Math.floor(upperCaseArray.length * Math.random())]);
+      Array.prototype.push.apply(fullArray, upperCaseArray);
   }
 
   // add special characters
   if (passwordInfo.passSpecial === true) {
     finalPassword.push(
-      specialCharArray[Math.floor(specialCharArray.length * Math.random())]
-    );
+      specialCharArray[Math.floor(specialCharArray.length * Math.random())]);
+      Array.prototype.push.apply(fullArray, specialCharArray);
   }
   // add numbers
   if (passwordInfo.passNumeric === true) {
     finalPassword.push(
-      numericArray[Math.floor(numericArray.length * Math.random())]
-    );
+      numericArray[Math.floor(numericArray.length * Math.random())]);
+      Array.prototype.push.apply(fullArray, numericArray);
   }
   fullLengthPass();
 };
 // when final password is less than passwordinfo length run through each array and sometimes add a char
 var fullLengthPass = function () {
-  var randomChance = true;
+  for (var i = 0; i < passwordInfo.passLength; i++) {
+    finalPassword.push(fullArray[Math.floor(fullArray.length * Math.random())]);
+  }
+  };
+ 
+console.log(passwordInfo);
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword()
+  var passwordText = document.querySelector("#password");
+
+  // joins array to display final password
+  passwordText.value = finalPassword.join("");
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+
+// removed code, saving for potential future modification
+
+/* var randomChance = true;
   if (Math.random() > 0.5) {
     randomChance = false;
   }
@@ -253,19 +278,4 @@ var fullLengthPass = function () {
       );
     }
   }
-};
-console.log(passwordInfo);
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  // joins array to display final password
-  passwordText.value = finalPassword.join("");
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+};*/
