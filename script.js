@@ -84,6 +84,7 @@ var numericArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var finalPassword = [];
 // finalize password
 
+
 var generatePassword = function () {
     // reset final password
     finalPassword = [];
@@ -91,15 +92,14 @@ var generatePassword = function () {
   var promptLength = window.prompt(
     "How long would you like your password to be? Please enter a number from 8 to 128."
   );
-
+    
   //Users response invalid
-  if (promptLength <= 7 || promptLength >= 129) {
-    window.alert("Please select a valid number.");
-    return generatePassword();
-  } else {
+  if (promptLength >= 7 && promptLength <= 129) {
     passwordInfo.passLength = promptLength;
-  }
-  console.log(promptLength);
+  } else {
+      window.alert("Please select a valid number.");
+  return generatePassword();
+  };
 
   // lowercase confirm
   var lowerCaseConfirm = window.confirm(
