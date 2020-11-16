@@ -9,10 +9,6 @@
 5. Ask to include numeric characters.
 * After all prompts are answered a random password is displayed in the box the meets prompted criteria.
 
-### Current Page Issues
-
-* Password does not generate if anything other than a number is entered when asking for password length.
-
 ### Link
 
 [Deployed application](https://corycalaway.github.io/password-generator/)
